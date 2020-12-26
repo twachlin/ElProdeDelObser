@@ -10,16 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_26_154712) do
-
-  create_table "matches", force: :cascade do |t|
-    t.string "team1", default: "", null: false
-    t.integer "score1"
-    t.string "team2", default: "", null: false
-    t.integer "score2"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
+ActiveRecord::Schema.define(version: 2020_12_26_165947) do
 
   create_table "teams", force: :cascade do |t|
     t.string "name", default: "", null: false
@@ -40,6 +31,7 @@ ActiveRecord::Schema.define(version: 2020_12_26_154712) do
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
     t.string "username", null: false
+    t.integer "score"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

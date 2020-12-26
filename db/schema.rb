@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_26_153811) do
+ActiveRecord::Schema.define(version: 2020_12_26_154712) do
+
+  create_table "matches", force: :cascade do |t|
+    t.string "team1", default: "", null: false
+    t.integer "score1"
+    t.string "team2", default: "", null: false
+    t.integer "score2"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "teams", force: :cascade do |t|
     t.string "name", default: "", null: false

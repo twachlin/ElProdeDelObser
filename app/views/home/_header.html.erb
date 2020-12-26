@@ -1,36 +1,10 @@
 <%= link_to 'Inicio', root_path %>
 
-<%if user.signed_in?%>
-    <%= link_to 'Iniciar sesion', users_sign_in_path %>
-    <%= link_to 'Registrarte', users_sign_up_path %>
+<%if user_signed_in?%>
+  <%= link_to 'Edit Profile', edit_user_registration_path %>
+  <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+<%else%>
+  <%= link_to 'Iniciar sesion', new_user_session_path %>
+  <%= link_to 'Registrarte', new_user_registration_path %>
 <%end%>
 
-
-<nav class="navbar navbar-default" role="navigation">
-  <div class="container">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed"data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <%= link_to 'Pinterested', root_path, class: 'navbar-brand' %>
-    </div>
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to 'Inicio', root_path %></li>
-        <li><%= link_to 'Reglamento', home_regulation_path %></li>
-        <% if user_signed_in? %>
-         <li><%= link_to 'Edit Profile',edit_user_registration_path %></li>
-         <li><%= link_to 'Logout',destroy_user_session_path, method: :delete %></li>
-        <% else %>
-         <li><%= link_to "Login",new_user_session_path %></li>
-          <li><%= link_to "Join",new_user_registration_path %></li>
-        <% end %>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div
-</nav>
